@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>ArmGo</title>
+	<meta charset='utf-8' >
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<div style="position:absolute; border:1px solid #F00; left: 574px; top: 70px; width: 163px; height: 139px;">
+	  <input style="position:absolute; left: 22px; top: 77px; width: 71px; height: 38px;"type="button" value="DOWN" onClick="arm.down()">
+<input style="position:absolute; left: 97px; top: 42px; width: 59px; height: 70px;"type="button" value="->" onClick="arm.right()">
+<input style="position:absolute; left: 49px; top: 41px; width: 46px; height: 37px;" type="button" value="UP" onClick="arm.up()">
+	</div>
+    <span id="ns"></span>
+<br/>
+
+	<!--  main GAME  -->
+<div id="game">
+		<canvas id="canvas" width="900px" height="480px"></canvas>
+  <div id="cope1" class="cope"  ></div>
+         <div id="GoMission" ></div>
+</div>
+</body>
+	
+	<script type="text/javascript" src="maps.js"></script>
+	<script type="text/javascript" src="armgo.js"></script>
+
+</html>
