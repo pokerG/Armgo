@@ -3,12 +3,20 @@
 	<title>ArmGo</title>
 	<meta charset='utf-8' >
 	<link rel="stylesheet" type="text/css" href="style.css" />
-</head>
+	<script type="text/javascript" src="maps.js"></script>
+	<script type="text/javascript">
+    	// preload
+		for ( i=0; i<imgfile.length; i++){
+			var a = new Image();
+			a.src = "img/" + imgfile[i] ;
+		}
+    </script>
+</head> 
 <body>
-	<div style="position:absolute; border:1px solid #F00; left: 574px; top: 70px; width: 163px; height: 139px;">
-	  <input style="position:absolute; left: 22px; top: 77px; width: 71px; height: 38px;"type="button" value="DOWN" onClick="arm.down()">
-<input style="position:absolute; left: 97px; top: 42px; width: 59px; height: 70px;"type="button" value="->" onClick="arm.right()">
-<input style="position:absolute; left: 49px; top: 41px; width: 46px; height: 37px;" type="button" value="UP" onClick="arm.up()">
+	<div style="position:absolute; left: 257px; top: 15px; width: 251px; height: 108px;">
+	  <input style="position:absolute; left: 13px; top: 52px; width: 71px; height: 38px;"type="button" value="DOWN" onClick="arm.down()">
+<input style="position:absolute; left: 85px; top: 15px; width: 60px; height: 76px;"type="button" value="->" onClick="arm.right()">
+<input style="position:absolute; left: 14px; top: 15px; width: 70px; height: 37px;" type="button" value="UP" onClick="arm.up()">
 	</div>
     <span id="ns"></span>
 <br/>
@@ -17,11 +25,12 @@
 <div id="game">
 		<canvas id="canvas" width="900px" height="480px"></canvas>
   <div id="cope1" class="cope"  ></div>
-         <div id="GoMission" ></div>
+  <input name="" type="button" style="position:absolute; left: 726px; top: 34px; width: 70px; height: 37px;" onClick="missionList.show();" value="Mission">
+  <input name="" type="button" style="position:absolute; left: 800px; top: 34px; width: 70px; height: 37px;" onClick="runs.run(0,0);" value="GO">
 </div>
 </body>
 	
-	<script type="text/javascript" src="maps.js"></script>
+	
 	<script type="text/javascript" src="armgo.js"></script>
 
 </html>

@@ -1,12 +1,13 @@
 canvas{
 	border: 1px solid #000;
+	cursor:	hand;
 }
 
 .cope{
 	position: absolute;
 	height: 50px;
 	width: 50px;
-	background: url("img/right2.jpg");
+	background: url("img/right.jpg");
 }
 
 #GoMission{
