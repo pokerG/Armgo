@@ -17,3 +17,8 @@ canvas{
 	cursor: hand;
 	//border: 1px solid #f00;
 }
+
+#toolslc{
+	position: absolute;
+	cursor: hand;
+}

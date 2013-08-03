@@ -1,5 +1,5 @@
 // Preferences
-var Fz = 20;
+var Fz = 40;
 
 // Const Variables
 var ms = {
@@ -41,6 +41,7 @@ var arm = new ARM();
 var cope = new COPE(1);
 var missionList = new MISSIONLIST();
 var runs = new RUNS();
+var toolbar = new TOOLBAR();
 
 function COPE(v){
 	this.x = 50;
@@ -64,6 +65,7 @@ function ARM(){
 	}
 	this.init();
 	this.done = function(v,i){
+		if ( v == undefined ) return ;
 		if ( runs.tasks[v][i+1] != 0 ) runs.run(v,i+1);
 	}
 	this.right = function(v,ii){
@@ -164,9 +166,9 @@ function RUNS(){
 	}
 	this.init();
 	this.x = STATE.x + CELL.x*8;
-	this.y = STATE.y - CELL.y;
-	this.r = 300;
-	this.c = 300;
+	this.y = STATE.y - CELL.y + cope.height * 0.7;
+	this.r = cope.width * 9;
+	this.c = cope.height * 6.8;
 	this.draw = function(){
 		for ( i=0; i<4; i++){
 			for ( j=1; j<9; j++){
@@ -175,6 +177,13 @@ function RUNS(){
 			}
 			drawCope(this.x,this.y+cope.height*i*1.7,i+4,cope.width,cope.height);
 		}
+		
+		// div : toolslc
+		var cd = eid("toolslc");
+		cd.style.left = this.x + c.offsetLeft + cope.width;
+		cd.style.top =  this.y + c.offsetTop - cope.height * 0.7;
+		cd.style.width = this.r - cope.width;
+		cd.style.height = this.c;
 	}
 	this.run = function(v,i){
 		ns.innerHTML = v + ',' + i ;
@@ -201,6 +210,17 @@ function RUNS(){
 					this.run(3,0);
 					break;
 			}
+	}
+}
+
+function TOOLBAR(){
+	this.r = cope.width * 2;
+	this.c = 100;
+	this.s = 0;
+	this.show = function(x,y){
+		if ( this.s == 0 ) return ;
+		x = x - this.r - 20;
+		cxt.fillRect(x,y,this.r + 20,this.c+20);
 	}
 }
 
@@ -234,17 +254,20 @@ function initVal(v){
 		}
 	}
 	arm.init();
+	flashMap(1);
 	ctime = setInterval('flashMap()',Fz);
 }
 
-function flashMap(){
-	cxt.clearRect(0,0,c.width,c.height);
-	drawBg();
-	drawGoal();
+function flashMap(x){
+	//cxt.clearRect(0,0,c.width,c.height);
 	drawState();
 	drawArm();
-	drawBAG();
-	runs.draw();
+	toolbar.show();
+	if ( x == 1 ){
+		drawBg();
+		drawGoal();
+		runs.draw();
+	}
 }
 
 function drawHello(){
@@ -262,25 +285,25 @@ function drawHello(){
 }
 
 function drawBg(){
-	cxt.fillStyle = '#999966';
+	cxt.fillStyle = color[3] ;
 	cxt.fillRect(0,0,c.width,c.height);
-	cxt.fillStyle = "#5E4925";
-	cxt.fillRect(GOALM.x+CELL.x*6,GOALM.y-35,15,500);
-	for ( i=1; i<7; i++){
-		cxt.fillRect(GOALM.x,GOALM.y+CELL.y*(i*2-1),CELL.x*6,15);
-	}
-	cxt.fillRect(STATE.x+CELL.x*6,STATE.y-35,15,500);
-	for ( i=1; i<7; i++){
-		cxt.fillRect(STATE.x,STATE.y+CELL.y*(i*2-1),CELL.x*6,15);
-	}
 }
 
 function drawGoal(){
 	var x = GOALM.x;
 	var y = GOALM.y;
 	var g = Goal[Mission];
+	
+	// holder
+	cxt.fillStyle = "#5E4925";
+	cxt.fillRect(GOALM.x+CELL.x*6,GOALM.y-35,15,500);
+	for ( i=1; i<7; i++){
+		cxt.fillRect(GOALM.x,GOALM.y+CELL.y*(i*2-1),CELL.x*6,15);
+	}
+	
+	// CELL
 	cxt.fillStyle = '#000';
-	cxt.font = '30px Arial';
+	cxt.font = "30px 'Comic Sans MS'";
 	cxt.fillText("GOAL:",x,y-20);
 	for ( i=0; i<6; i++ ){
 		for ( j=0; j<6; j++){
@@ -299,6 +322,19 @@ function drawState(){
 	var x = STATE.x;
 	var y = STATE.y;
 	var g = state;
+	
+	// clear
+	cxt.fillStyle = color[3];
+	cxt.fillRect(arm.leftz-10,arm.topz,CELL.x*7+30,CELL.y*12);
+	
+	// holder
+	cxt.fillStyle = "#5E4925";
+	cxt.fillRect(STATE.x+CELL.x*6,STATE.y-35,15,500);
+	for ( i=1; i<7; i++){
+		cxt.fillRect(STATE.x,STATE.y+CELL.y*(i*2-1),CELL.x*6,15);
+	}
+	
+	// cell
 	for ( i=0; i<6; i++ ){
 		for ( j=0; j<6; j++){
 			cxt.fillStyle = color[g[i][j]];
@@ -330,22 +366,6 @@ function drawArm(){
 	if ( arm.hand != 0 ) drawCell(arm.x,arm.y,arm.hand);
 }
 
-function drawBAG(){
-	var x = BAG.x;
-	var y = BAG.y;
-	cxt.fillStyle = "#178512";
-	cxt.fillRect(x,y,BAG.r,BAG.c);
-	cxt.fillStyle = "#095206";
-	cxt.fillRect(x+20,y+20,BAG.r-40,BAG.c-40);
-	for (i=1; i<4; i++){
-		drawCope(x+40+(i-1)*cope.width*1.5,y+40,i);
-	}
-}
-
-function drawAuthor(){
-		
-}
-
 function drawCope(x,y,v,r,c){
 	var img = new Image();
 	img.src="img/"+imgfile[v];
@@ -369,14 +389,8 @@ function checkAns(){
 	}
 }
 
-function sleep(s){
-	flashMap();
-	var startTime = new Date().getTime();
-	while ( new Date().getTime() < startTime + s ) ;
-}
-
 function Wmove(e){
-	//ns.innerHTML = (e.clientX - c.offsetLeft) + "," + (e.clientY - c.offsetTop);
+	ns.innerHTML = (e.clientX - c.offsetLeft) + "," + (e.clientY - c.offsetTop);
 }
 
 function Wdown(e){
