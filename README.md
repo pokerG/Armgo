@@ -3,7 +3,7 @@ Armgo
 ***********
 这是一个基于html5的游戏 
 
-完成效果可参考 [http://armgoo.duapp.com]("http://v.pcgames.com.cn/video-62553.html")
+完成效果可参考 [http://v.pcgames.com.cn/video-62553.html]("http://v.pcgames.com.cn/video-62553.html")
 
 由于cargo-bot目前只能在ipad上运行，所以我们的目的是对其进行移植
 
