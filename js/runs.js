@@ -1,3 +1,12 @@
+//
+// Class 代码解析运行
+//@Randox
+/*  attribute ：
+		
+
+	method :
+*/
+//
 function RUNS(){
 	this.init = function(){
 		this.tasks=[[1,5,1,0,0,0,0,0],[3,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];

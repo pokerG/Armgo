@@ -1,3 +1,12 @@
+//
+// Class 机械臂
+//@Randox
+/*  attribute ：
+		
+
+	method :
+*/
+//
 function ARM(){
 	this.leftz = STATE.x - CELL.x - 12;
 	this.topz = STATE.y;

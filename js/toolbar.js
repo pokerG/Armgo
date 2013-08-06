@@ -1,3 +1,12 @@
+//
+// Class 工具栏
+//@Randox
+/*  attribute ：
+		
+
+	method :
+*/
+//
 function TOOLBAR(){
 	this.r = cope.width * 2;
 	this.c = 100;

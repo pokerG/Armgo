@@ -1,3 +1,12 @@
+//
+// Class 关卡
+//@Randox
+/*  attribute ：
+		
+
+	method :
+*/
+//
 function MISSIONLIST(){
 	this.tot = Goal.length-1;
 	this.x = 90;
