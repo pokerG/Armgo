@@ -1,13 +1,10 @@
-Armgo
-======
-***********
-这是一个基于html5的游戏 
+ArmGo
+=====
 
-完成效果可参考 [http://v.pcgames.com.cn/video-62553.html]("http://v.pcgames.com.cn/video-62553.html")
+a game from iPad...
 
-由于cargo-bot目前只能在ipad上运行，所以我们的目的是对其进行移植
+programming the copes to leading the arm to move the cells, achieve the goal state and you can get your scores.
 
+Contact us: pokerfacehlg@gmail.com
 
-目前项目已托管在百度BAE上 地址：[http://armgoo.duapp.com]("http://armgoo.duapp.com")
-
-如有疑问 请联系 `pokerfacehlg@gmail.com` 或者 `i560@foxmail.com`
+or: zhrlnt@gmail.com 
