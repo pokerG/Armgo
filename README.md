@@ -1,12 +1,16 @@
 ArmGo
 =====
+***
+*A game from iPad...*
 
-a game from iPad...
+**Project profile:**Programming the copes to leading the arm to move the cells, achieve the goal state and you can get your scores.
 
-programming the copes to leading the arm to move the cells, achieve the goal state and you can get your scores.
 
-testing page : http://armgoo.duapp.com ( Be true you are not in mac OS )
+The project is hosted in BAE : [http://armgoo.duapp.com]("http://armgoo.duapp.com")
 
-Contact us: zhrlnt@gmail.com
 
-or: pokerfacehlg@gmail.com 
+
+**Authors :** Randox , pokerG
+
+**Contact us:** pokerfacehlg@gmail.com
+or: zhrlnt@gmail.com 
